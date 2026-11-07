@@ -1,0 +1,6 @@
+(function () {
+  LJ.pages.client.access = function (path) {
+    const register = path === "client/daftar.html";
+    return `<section class="section soft"><div class="container"><div class="panel auth-box client-access-panel"><h1>${register ? "Lengkapi profil klien." : "Bantuan akses akun."}</h1><p>${register ? "Identitas dan kontak untuk catatan kebutuhan hunian." : "Tinjau petunjuk akses dan informasi yang perlu dikonfirmasi."}</p><form id="${register ? "register-form" : "forgot-form"}"><div class="form-error" role="alert"></div><div class="stack">${register ? LJ.field({ name: "name", label: "Nama lengkap", required: true }) : ""}${LJ.field({ name: "email", label: "Alamat email", type: "email", required: true })}${register ? LJ.field({ name: "phone", label: "Nomor telepon", type: "tel", required: true }) : ""}<div class="consult-note">${register ? "Perubahan memperbarui profil pencatatan. Identitas serta kewenangan akun tetap memerlukan konfirmasi perusahaan." : "Halaman ini menampilkan petunjuk akses. Pesan pemulihan tidak dikirim melalui formulir ini."}</div><button type="submit" class="btn primary full">${register ? "Simpan profil" : "Lihat petunjuk akses"}</button><a class="text-link" href="client/profile.html">Kembali ke profil</a></div></form></div></div></section>`;
+  };
+})();
